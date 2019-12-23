@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="40dp"
+
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/bt_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/arrow_left"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="우리스쿨"
+            android:textSize="40sp"
+            android:textColor="#47C83E"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="left"
+        android:text="안녕하세요 학부모님\n반갑습니다"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_stroke">
+        <EditText
+            android:id="@+id/ph_num"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="전화번호"
+            android:paddingLeft="30dp"
+            android:background="@null"
+            />
+
+        <Button
+            android:id="@+id/bt_auth"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증하기"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_stroke"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/auth_num"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:background="@null"
+            android:hint="인증번호"
+            android:layout_gravity="center"
+            android:inputType="number"/>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:drawableLeft="@drawable/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="문의 12-3456-7890"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_marginTop="5dp"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:background="#47C83E"
+        android:text="로그인"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="copyright abcd"
+        android:gravity="center"/>
+
+
+</LinearLayout>
