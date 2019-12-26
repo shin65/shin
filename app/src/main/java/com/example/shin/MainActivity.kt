@@ -1,17 +1,18 @@
 package com.example.shin
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import com.example.shin.utils.ConnectServer
 import kotlinx.android.synthetic.main.activity_main.*
-//import com.example.myapplication.utils.ConnectServer
-import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    val mContext: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,44 +25,58 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)}
 
 
-
         bt_auth.setOnClickListener{
 
-        val client = OkHttpClient()
+            ConnectServer.postRequestPhoneAuth(ph_num.text.toString())
 
-        val requestBody = FormBody.Builder()
-            .add("phone_num", ph_num.text.toString())
-            .add("device_token", "1")
-            .add("os", "iOS")
-            .build()
+        }
 
-        val request = Request.Builder()
-            //.header("X-Http-Token", ContextUtils.getUserToken(context))
-            .url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/" + "phone_auth")
-            .post(requestBody)
-            .build()
+        bt_login.setOnClickListener(){
+            var intent = Intent(this, AddChildActivity::class.java)
+            ConnectServer.postRequestLogin(ph_num.text.toString(), auth_num.text.toString(), "PARENTS",
+                object :ConnectServer.JsonResponseHandler {
+                    override fun onResponse(json: JSONObject) {
+                        try {
+                            if (json.getInt("code") == 200) {
+                                //val token = json.getJSONObject("data").getString("token")
+                                //ContextUtils.setUserToken(mContext, token)
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                println("error!!")
+                                //val user =
+                                //    User.getUserFromJson(json.getJSONObject("data").getJSONObject("user"))
+                                //ContextUtils.setLoginUser(mContext, user)
+                                //GlobalData.loginUser = user
+                                println("dddddddddddd")
+                                runOnUiThread {
 
-            }
+                                    startActivity(intent)
+                                    /*
+                                    var intent: Intent? = null
+                                    if (user.getChild() != null) {
+                                        //                                                    intent = new Intent(mContext, ParentHomeActivity.class);
+                                        intent = Intent(mContext, ParentTabHomeActivity::class.java)
+                                        intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        intent = Intent(mContext, LoginParentInfoActivity::class.java)
+                                        startActivity(intent)
+                                    }*/
+                                }
+                            } else {
+                                val message = json.getString("message")
+                                runOnUiThread {
+                                    Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
+                        }
 
-            @Throws(IOException::class)
-            override fun onResponse(call: Call, response: Response) {
-                //                Log.d("aaaa", "Response Body is " + response.body().string());
-                val body = response.body()!!.string()
-                Log.d("log", "서버에서 응답한 Body:$body")
-                try {
-                    val json = JSONObject(body)
-                    //if (handler != null)
-                    //    handler.onResponse(json)
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
+                    }
 
-            }
-        })
+                } )
+
+
 
         }
 

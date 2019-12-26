@@ -3,4 +3,70 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="black_transparent_60">#99000000</color>
+    <color name="black_transparent_50">#80000000</color>
+    <color name="black_transparent_40">#66000000</color>
+    <color name="black_transparent_7">#12000000</color>
+
+    <color name="gray_d1d1d1_transparent_53">#87D1D1D1</color>
+    <color name="gray_efefef_transparent_53">#87EFEFEF</color>
+
+    <color name="red_f26764_transparent_13">#21F26764</color>
+    <color name="red_f26764_transparent_10">#1AF26764</color>
+
+    <color name="green_2cc68f_transparent_10">#1A2CC68F</color>
+
+    <color name="blue_329dff_transparent_12">#1F329DFF</color>
+
+    <color name="red_f26764">#F26764</color>
+
+    <color name="yellow_ffc600">#FFC600</color>
+
+    <color name="green_2cc68f">#2CC68F</color>
+    <color name="green_e4f8f1">#E4F8F1</color>
+
+    <color name="blue_12b6d7">#12B6D7</color>
+    <color name="blue_329dff">#329DFF</color>
+    <color name="blue_61adf2">#61ADF2</color>
+    <color name="blue_7c8597">#7C8597</color>
+    <color name="blue_e9f3fd">#E9F3FD</color>
+
+    <color name="gray_020202">#020202</color>
+    <color name="gray_050505">#050505</color>
+    <color name="gray_1c1c1c">#1C1C1C</color>
+    <color name="gray_3a3a3a">#3A3A3A</color>
+    <color name="gray_4a4a4a">#4A4A4A</color>
+    <color name="gray_636363">#636363</color>
+    <color name="gray_979797">#979797</color>
+    <color name="gray_9b9b9b">#9B9B9B</color>
+    <color name="gray_bababa">#BABABA</color>
+    <color name="gray_d1d1d1">#D1D1D1</color>
+    <color name="gray_d6d6d6">#D6D6D6</color>
+    <color name="gray_d9d9d9">#D9D9D9</color>
+    <color name="gray_dfdfdf">#DFDFDF</color>
+    <color name="gray_e0e0e0">#E0E0E0</color>
+    <color name="gray_e1e1e1">#E1E1E1</color>
+    <color name="gray_e2e2e2">#E2E2E2</color>
+    <color name="gray_e6e6e6">#E6E6E6</color>
+    <color name="gray_e8e8e8">#E8E8E8</color>
+    <color name="gray_ececec">#ECECEC</color>
+    <color name="gray_ededed">#EDEDED</color>
+    <color name="gray_efefef">#EFEFEF</color>
+    <color name="gray_f0f0f0">#F0F0F0</color>
+    <color name="gray_f0f1f2">#F0F1F2</color>
+    <color name="gray_f2f2f2">#F2F2F2</color>
+    <color name="gray_f3f3f3">#F3F3F3</color>
+    <color name="gray_f3f4f5">#F3F4F5</color>
+    <color name="gray_f4f4f4">#F4F4F4</color>
+    <color name="gray_f5f5f5">#F5F5F5</color>
+    <color name="gray_f5f6f7">#F5F6F7</color>
+    <color name="gray_f5f6fa">#F5F6FA</color>
+    <color name="gray_f7f7f7">#F7F7F7</color>
+    <color name="gray_f8f8f8">#F8F8F8</color>
+    <color name="gray_f8f8fa">#F8F8FA</color>
 </resources>
