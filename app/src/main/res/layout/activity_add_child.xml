@@ -31,7 +31,15 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/line">
+
+            <Spinner
+                android:id="@+id/spinnerLoginParentInfoSchool"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"/>
+
             <EditText
+                android:visibility="gone"
                 android:id="@+id/num_school"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -43,6 +51,7 @@
                 />
 
             <Button
+                android:visibility="gone"
                 android:id="@+id/bt_search"
                 android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"

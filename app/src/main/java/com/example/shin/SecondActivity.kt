@@ -17,7 +17,8 @@ class SecondActivity : AppCompatActivity() {
 
         bt_parent.setOnClickListener(
             {
-                var myIntent = Intent(this, MainActivity::class.java)
+                val myIntent = Intent(this, MainActivity::class.java)
+                myIntent.putExtra("type", "PARENTS")
                 startActivity(myIntent)
             }
         )
