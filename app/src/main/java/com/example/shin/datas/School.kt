@@ -31,7 +31,9 @@ class School : Serializable {
         }
     }
 
-    fun School(){}
+    fun School() {
+
+    }
 
     fun GetId(): Int {
         return id

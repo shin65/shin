@@ -45,18 +45,19 @@ class AddChildActivity : AppCompatActivity() {
                     try {
                         if (json.getInt("code") == 200) {
                             val school = json.getJSONObject("data").getJSONArray("school")
-
+println("학교 : " + school)
                             list.clear()
 
                             val first = School()
                             first.SetId(-1)
                             first.SetName("선택해주세요")
                             list.add(first)
-
+println("선책해주세요 리스트 목록 : " + list)
                             for (i in 0 until school.length()) {
                                 list.add(School.getSchoolFromJson(school.getJSONObject(i)))
                             }
-
+println("여기까지 이상무!")
+                            println("리스트 목록" + list) // list에 담겨진 데이터 형태 잘못된것 같음.
                             runOnUiThread {
                                 adapter = SchoolSpinnerAdapter(mContext, list)
                                 spinnerLoginParentInfoSchool.setAdapter(adapter)
