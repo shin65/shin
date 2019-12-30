@@ -19,7 +19,7 @@ class ConnectServer {
     }
 
 companion object {
-    fun checkIntenetSetting(context: Context): Boolean {
+    fun checkIntenetSetting(context: Context): Boolean {    // 인터넷 연결 여부 검사.
         var isConnected = false
 
         val manager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -43,7 +43,7 @@ companion object {
         return isConnected
     }
 
-    fun postRequestPhoneAuth(context:Context, ph_num: String, device_token : String, handler: JsonResponseHandler) {
+    fun postRequestPhoneAuth(context:Context, ph_num: String, device_token : String?, handler: JsonResponseHandler) {   // 서버 api 인증번호 요청.
         val client = OkHttpClient()
 
         val requestBody = FormBody.Builder()
@@ -81,7 +81,7 @@ companion object {
         })
     }
 
-    fun postRequestLogin(
+    fun postRequestLogin(   // 인증번호 일치 확인 후 로그인.
         phone_num: String,
         phone_auth_num: String,
         type: String,

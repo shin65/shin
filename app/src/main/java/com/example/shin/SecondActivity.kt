@@ -18,7 +18,7 @@ class SecondActivity : AppCompatActivity() {
         bt_parent.setOnClickListener(
             {
                 val myIntent = Intent(this, MainActivity::class.java)
-                myIntent.putExtra("type", "PARENTS")
+                myIntent.putExtra("type", "PARENTS") // 다음창으로 값 넘김.
                 startActivity(myIntent)
             }
         )

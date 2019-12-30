@@ -12,11 +12,11 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activiry_first)
 
-        supportActionBar?.hide()
+        supportActionBar?.hide() // 상단 바 감추기
 
         Handler().postDelayed({
             startActivity(Intent(this,SecondActivity::class.java))
-        },1500)
+        },1500) // 자동 화면 넘김.
 
     }
 }

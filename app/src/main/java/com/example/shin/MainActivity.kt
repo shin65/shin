@@ -19,8 +19,8 @@ import org.json.JSONObject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    val mContext: Context = this
-    lateinit var type : String
+    val mContext: Context = this // 현재 창 선언.
+    lateinit var type : String // 이전 창에서 넘겨 받은 값 담을 변수선언.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        type = intent.getStringExtra("type")
+        type = intent.getStringExtra("type") // 이전 창에서 넘겨 받은 값으로 초기값 설정.
         //println(type)
 
         bt_back.setOnClickListener{
@@ -37,17 +37,18 @@ class MainActivity : AppCompatActivity() {
 
 
         bt_auth.setOnClickListener {
-            /*val device_token = FirebaseInstanceId.getInstance().token
+            val device_token : String? = FirebaseInstanceId.getInstance().token // 기기 토큰 값
+            // app, project gradle에 추가, app gradle에 apply plugin 추가, manifests에 추가.
             if (TextUtils.isEmpty(device_token)) {
                 Log.d("token", "token is empty")
                 val intent = Intent(mContext, FCMIDService::class.java)
                 startService(intent)
-
-            }*/ // <-- 이 코드 넣고 인증번호 발송하면 앱 종
-            ConnectServer.postRequestPhoneAuth(
+            } // <-- 이 코드 넣고 인증번호 발송하면 앱 종료 : Tools에서 Firebase 연동하면 됨 -> 정상작동.
+            println("device_token : " + device_token)
+            ConnectServer.postRequestPhoneAuth(     // EditText에서 받은 값 서버 api 호출.
                 mContext,
                 ph_num.text.toString(),
-                "1",
+                device_token,
                 object : ConnectServer.JsonResponseHandler {
                     override fun onResponse(json: JSONObject) {
                         try {
@@ -80,11 +81,11 @@ class MainActivity : AppCompatActivity() {
             //var intent = Intent(this, AddChildActivity::class.java)
             //startActivity(intent)
 
-            ContextUtils.setLoginType(mContext, type)
+            ContextUtils.setLoginType(mContext, type)   // 기기에 로그인 type 저장. (ex. PARENTS).
 
             when(type){
                 "PARENTS" -> ConnectServer.postRequestLogin(ph_num.text.toString(), auth_num.text.toString(), type,
-                    object :ConnectServer.JsonResponseHandler {
+                    object :ConnectServer.JsonResponseHandler {     // 인증번호 검사 후 로그인.
                         override fun onResponse(json: JSONObject) {
                             try {
                                 if (json.getInt("code") == 200) {
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                                         //startActivity(intent)
 
                                         var intent: Intent? = null
-                                        if (user.GetChild() != null) {
+                                        if (user.GetChild() != null) {      // client의 자녀 정보확인후 연결 창.
                                             //                                                    intent = new Intent(mContext, ParentHomeActivity.class);
                                             var intent = Intent(mContext, AddChildActivity::class.java)
                                             intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
