@@ -12,13 +12,14 @@ import com.example.shin.utils.ConnectServer
 import kotlinx.android.synthetic.main.activity_add_child.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.bt_back
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.ArrayList
 
 class AddChildActivity : AppCompatActivity() {
-    internal lateinit var adapter: SchoolSpinnerAdapter
-    internal var list: MutableList<School> = ArrayList<School>()
+    lateinit var adapter: SchoolSpinnerAdapter
+    var list: ArrayList<School> = ArrayList<School>()
     val mContext: Context = this
 
 
@@ -33,10 +34,10 @@ class AddChildActivity : AppCompatActivity() {
             var myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)}
 
-        //getSchoolList()
+        getSchoolList()
     }
 
-    fun getSchoolList() {
+    private fun getSchoolList() {
         ConnectServer.getRequestSchoolList(
             mContext,
             "",
@@ -44,23 +45,24 @@ class AddChildActivity : AppCompatActivity() {
                 override fun onResponse(json: JSONObject) {
                     try {
                         if (json.getInt("code") == 200) {
-                            val school = json.getJSONObject("data").getJSONArray("school")
+                            val school : JSONArray = json.getJSONObject("data").getJSONArray("school")
 println("학교 : " + school)
                             list.clear()
 
-                            val first = School()
+                            val first : School = School()
                             first.SetId(-1)
                             first.SetName("선택해주세요")
                             list.add(first)
-println("선책해주세요 리스트 목록 : " + list)
+println("선택해주세요 리스트 목록 : " + list + first.GetName() + school.length() + list[0].GetName() + "--" + school.getJSONObject(0))
                             for (i in 0 until school.length()) {
                                 list.add(School.getSchoolFromJson(school.getJSONObject(i)))
                             }
 println("여기까지 이상무!")
-                            println("리스트 목록" + list) // list에 담겨진 데이터 형태 잘못된것 같음.
+                            println("리스트 목록 : " + list[1].GetName() + list[1]) // list에 담겨진 데이터 형태 잘못된것 같음.
                             runOnUiThread {
-                                adapter = SchoolSpinnerAdapter(mContext, list)
+                                adapter = SchoolSpinnerAdapter(mContext, list) // <----------------------------------------------
                                 spinnerLoginParentInfoSchool.setAdapter(adapter)
+                                println("어댑터 값 : " + adapter.getItem(1))
                             }
                         } else {
                             val message = json.getString("message")

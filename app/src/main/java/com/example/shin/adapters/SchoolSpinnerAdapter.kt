@@ -13,10 +13,10 @@ import com.example.shin.datas.School
 import java.util.ArrayList
 //import java.util.List
 
-class SchoolSpinnerAdapter(context: Context, spinnerData: List<School>) : BaseAdapter() {
+class SchoolSpinnerAdapter(context: Context, spinnerData: ArrayList<School>) : BaseAdapter() {
     private var context: Context? = null
-    private var spinnerData: List<School> = ArrayList<School>()
-    private val inflater: LayoutInflater
+    private var spinnerData: ArrayList<School> = ArrayList<School>()
+    private var inflater: LayoutInflater
 
     init {
         this.context = context
@@ -24,7 +24,7 @@ class SchoolSpinnerAdapter(context: Context, spinnerData: List<School>) : BaseAd
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
-    fun setChangeData(spinnerData: List<School>) {
+    fun setChangeData(spinnerData: ArrayList<School>) {
         this.spinnerData = spinnerData
     }
 
@@ -40,7 +40,7 @@ class SchoolSpinnerAdapter(context: Context, spinnerData: List<School>) : BaseAd
         return 0
     }
 
-    override fun getView(i: Int, convertView: View, viewGroup: ViewGroup): View {
+    override fun getView(i: Int, convertView: View?, viewGroup: ViewGroup?): View? {    // 넘겨받은 인자 값 자료형에 ? 안하면 에러.
         var convertView = convertView
         val data = spinnerData[i]
 
@@ -56,7 +56,7 @@ class SchoolSpinnerAdapter(context: Context, spinnerData: List<School>) : BaseAd
         return convertView
     }
 
-    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View? {    // 넘겨받은 인자 값 자료형에 ? 안하면 에러.
         var convertView = convertView
         val data = spinnerData[position]
 

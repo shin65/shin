@@ -29,49 +29,51 @@ class School : Serializable {
 
             return school
         }
-    }
-
-    fun School() {
 
     }
+        fun School() {
 
-    fun GetId(): Int {
-        return id
-    }
+        }
 
-    fun SetId(id: Int) {
-        this.id = id
-    }
 
-    fun GetName(): String? {
-        return name
-    }
+        fun GetId(): Int {
+            return id
+        }
 
-    fun SetName(name: String) {
-        this.name = name
-    }
+        fun SetId(id: Int) {
+            this.id = id
+        }
 
-    fun SetNumber(): String? {
-        return number
-    }
+        fun GetName(): String? {
+            return name
+        }
 
-    fun SetNumber(number: String) {
-        this.number = number
-    }
+        fun SetName(name: String) {
+            this.name = name
+        }
 
-    fun GetCreated_at(): Calendar? {
-        return created_at
-    }
+        fun SetNumber(): String? {
+            return number
+        }
 
-    fun SetCreated_at(created_at: Calendar) {
-        this.created_at = created_at
-    }
+        fun SetNumber(number: String) {
+            this.number = number
+        }
 
-    fun GetUpdated_at(): Calendar? {
-        return updated_at
-    }
+        fun GetCreated_at(): Calendar? {
+            return created_at
+        }
 
-    fun SetUpdated_at(updated_at: Calendar) {
-        this.updated_at = updated_at
-    }
+        fun SetCreated_at(created_at: Calendar) {
+            this.created_at = created_at
+        }
+
+        fun GetUpdated_at(): Calendar? {
+            return updated_at
+        }
+
+        fun SetUpdated_at(updated_at: Calendar) {
+            this.updated_at = updated_at
+        }
+
 }
