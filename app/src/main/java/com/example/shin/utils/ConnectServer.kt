@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -165,5 +164,95 @@ companion object {
             }
         })
     }
+
+    fun postRequestProfileLogin(context:Context, name: String?, handler: JsonResponseHandler) {
+        val client = OkHttpClient()
+
+        val requestBody = FormBody.Builder()
+            .add("name", name)
+            //.add("image", image)
+            .build()
+
+        val request = Request.Builder()
+            .header("X-Http-Token", ContextUtils.getUserToken(context).toString())
+            .url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/" + "user_info")
+            .put(requestBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                println("error!!")
+
+            }
+
+            @Throws(IOException::class)
+            override fun onResponse(call: Call, response: Response) {
+                //                Log.d("aaaa", "Response Body is " + response.body().string());
+                val body = response.body()!!.string()
+                Log.d("log", "서버에서 응답한 Body:$body")
+                try {
+                    val json = JSONObject(body)
+                    if (handler != null)
+                        handler.onResponse(json)
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+
+            }
+        })
+    }
+
+    fun postRequestRegistChild(
+        context: Context?,
+        name: String?,
+        password: String?,
+        school_number: String?,
+        grade: String?,
+        class_number: String?,
+        number: String?,
+        handler: JsonResponseHandler?
+    ) {
+        if (!checkIntenetSetting(context!!)) {
+            return
+        }
+        val client = OkHttpClient()
+        //Request Body에 서버에 보낼 데이터 작성
+        val requestBody: RequestBody = FormBody.Builder()
+            .add("name", name)
+            .add("password", password)
+            .add("school_number", school_number)
+            .add("grade", grade)
+            .add("class_number", class_number)
+            .add("number", number)
+            .build()
+        //작성한 Request Body와 데이터를 보낼 url을 Request에 붙임
+        val request: Request = Request.Builder()
+            .header("X-Http-Token", ContextUtils.getUserToken(context))
+            .url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/parent_student")
+            .post(requestBody)
+            .build()
+        //request를 Client에 세팅하고 Server로 부터 온 Response를 처리할 Callback 작성
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.d("error", "Connect Server Error is $e")
+            }
+
+            @Throws(IOException::class)
+            override fun onResponse(
+                call: Call,
+                response: Response
+            ) { //                Log.d("aaaa", "Response Body is " + response.body().string());
+                val body = response.body()!!.string()
+                Log.d("log", "서버에서 응답한 Body:$body")
+                try {
+                    val json = JSONObject(body)
+                    handler?.onResponse(json)
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            }
+        })
+    }
+
 }
 }

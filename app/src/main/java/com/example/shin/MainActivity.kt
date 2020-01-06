@@ -102,11 +102,20 @@ class MainActivity : AppCompatActivity() {
 
                                         //startActivity(intent)
 
-                                        var intent: Intent? = null
+                                        //var intent: Intent? = null
+
+                                        println("이름 : " + user.GetName())
+                                        /*if(user.GetName() != null) {
+                                            println("이름이 없다")
+                                            var intent = Intent(mContext, ParentProfileActivity::class.java)
+                                            //intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            startActivity(intent)
+                                            //finish()
+                                        }*/
                                         if (user.GetChild() != null) {      // client의 자녀 정보확인후 연결 창.
                                             //                                                    intent = new Intent(mContext, ParentHomeActivity.class);
                                             println("자녀가 있습니다.")
-                                            var intent = Intent(mContext, AddChildActivity::class.java)
+                                            var intent = Intent(mContext, ParentProfileActivity::class.java)
                                             intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                             startActivity(intent)
                                             finish()

@@ -2,9 +2,8 @@ package com.example.shin.datas
 
 import org.json.JSONException
 import org.json.JSONObject
-
 import java.io.Serializable
-import java.util.Calendar
+import java.util.*
 
 
 class School : Serializable {
@@ -33,6 +32,10 @@ class School : Serializable {
     }
         fun School() {
 
+        }
+
+        fun GetNumber(): String? {
+        return number
         }
 
 

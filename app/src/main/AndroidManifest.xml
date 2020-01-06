@@ -16,18 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FirstActivity">
-
-        </activity>
-        <activity android:name=".SecondActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".AddChildActivity"/>
-        <activity android:name=".ParentHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".AddChildActivity"/>
+        <activity android:name=".ParentHomeActivity"/>
 
 
         <service android:name=".fcm.FCMIDService">
@@ -35,6 +33,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+        <activity android:name=".ParentProfileActivity"/>
     </application>
 
 </manifest>
