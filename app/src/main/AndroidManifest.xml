@@ -26,7 +26,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".AddChildActivity"/>
         <activity android:name=".ParentHomeActivity"/>
-
+        <activity android:name=".TermsActivity"/>
 
         <service android:name=".fcm.FCMIDService">
             <intent-filter>

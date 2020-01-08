@@ -3,6 +3,7 @@ package com.example.shin.datas
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.File
 
 import java.io.Serializable
 import java.util.ArrayList
@@ -17,8 +18,9 @@ class User : Serializable {
     var phone_auth_num: String? = null
     var created_at: Calendar? = null
     var updated_at: Calendar? = null
-
+    var terms_time :String? = null
     var attendance: String? = null
+    var profile_image_url: String? = "null"
 
     var child: User? = null
     var studentInfo: StudentInfo? = null
@@ -35,6 +37,8 @@ class User : Serializable {
                 user.type = json.getString("type")
                 user.name = json.getString("name")
                 user.phone_num = json.getString("phone_num")
+                user.terms_time = json.getString("terms_time")
+                user.profile_image_url = json.getString("profile_image_url")
 
                 if (!json.isNull("child") && json.getString("child") != "") {
                     user.child = User.getUserFromJson(json.getJSONObject("child"))
