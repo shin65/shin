@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AfterSchool">
+
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="20dp"
+          android:orientation="vertical">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+            >
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:text="4분기 방과후학교 수강신청기간"/>
+
+            <LinearLayout
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical">
+
+                  <ImageView
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_gravity="center"
+                      android:src="@drawable/ic_parent_apply" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:gravity="center"
+                      android:text="수강신청하기" />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical">
+
+                  <ImageView
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_gravity="center"
+                      android:src="@drawable/ic_parent_status" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:gravity="center"
+                      android:text="수강신청현황" />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical">
+
+                  <ImageView
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_gravity="center"
+                      android:src="@drawable/ic_parent_confirmed" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:gravity="center"
+                      android:text="수강확정강좌" />
+               </LinearLayout>
+            </LinearLayout>
+         </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:layout_marginTop="30dp"
+             android:background="@drawable/white_radius_5_green_2cc68f_border"
+             android:gravity="center"
+             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|center_vertical"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="방과후학교 프로그램 통신문 다운"
+                android:textColor="@color/green_2cc68f" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="9dp"
+                android:layout_weight="0"
+                android:src="@drawable/ic_download" />
+         </LinearLayout>
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="54dp"
+             android:gravity="center"
+             android:background="@drawable/blue_gradient_radius_8"
+             android:layout_marginTop="35dp"
+             android:layout_marginLeft="12dp"
+             android:layout_marginRight="12dp"
+             android:textColor="@color/white"
+             android:text="지금은 수강신청 기간이 아닙니.(Text)"/>
+
+
+      </LinearLayout>
+   </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

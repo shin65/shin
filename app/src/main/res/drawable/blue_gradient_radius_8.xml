@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners
+                        android:radius="8dp" />
+                    <gradient
+                        android:startColor="@color/blue_329dff"
+                        android:endColor="@color/blue_12b6d7"
+                        android:angle="0"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuitem_bottombar_home"
+        android:icon="@drawable/tab_home"
+        android:title="홈"
+        />
+    <item
+        android:id="@+id/menuitem_bottom_afterschool"
+        android:icon="@drawable/tab_after_school"
+        android:title="방과후수업"
+        />
+    <item
+        android:id="@+id/menuitem_bottom_board"
+        android:icon="@drawable/tab_board"
+        android:title="게시판"
+        />
+    <item
+        android:id="@+id/menuitem_bottom_chat"
+        android:icon="@drawable/tab_chatting"
+        android:title="소통방"
+        />
+    <item
+        android:id="@+id/menuitem_bottom_more"
+        android:icon="@drawable/tab_more"
+        android:title="더보기"
+        />
+</menu>

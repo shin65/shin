@@ -5,16 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.shin.adapters.SchoolSpinnerAdapter
 import com.example.shin.datas.School
+import com.example.shin.fragments.Home
 import com.example.shin.utils.ConnectServer
+import com.example.shin.utils.GlobalData
 import kotlinx.android.synthetic.main.activity_add_child.*
 import kotlinx.android.synthetic.main.activity_main.bt_back
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+//import sun.jvm.hotspot.utilities.IntArray
 import java.util.*
-import com.example.shin.utils.GlobalData
+
 
 class AddChildActivity : AppCompatActivity() {
     lateinit var adapter: SchoolSpinnerAdapter
@@ -54,6 +58,24 @@ class AddChildActivity : AppCompatActivity() {
                             if (json.getInt("code") == 200) {
                                 runOnUiThread {
                                     println("신문철")
+
+                                    /*
+                                    val fragment: Fragment =
+                                        Home() // Fragment 생성
+
+                                    val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
+
+                                    bundle.putString("name", edit_name.text.toString()) // key , value
+
+                                    fragment.arguments = bundle
+                                    */
+
+                                    /*
+                                    val intenthome=
+                                        Intent(mContext, Home::class.java)
+                                    intent.putExtra("name", edit_name.text.toString())
+                                     */
+
                                     val intent =
                                         Intent(mContext, ParentHomeActivity::class.java)
                                     intent.putExtra("name", edit_name.text.toString()) // 다음창으로 값 넘김.
