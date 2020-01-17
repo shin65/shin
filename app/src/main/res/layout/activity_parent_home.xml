@@ -23,6 +23,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/bt_my"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

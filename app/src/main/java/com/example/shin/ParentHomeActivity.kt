@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.example.shin.fragments.AfterSchool
 import com.example.shin.fragments.Home
+import com.example.shin.fragments.MyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -14,6 +15,7 @@ class ParentHomeActivity : AppCompatActivity(){
 
     lateinit var afterschool : AfterSchool
     lateinit var home : Home
+    lateinit var more : MyFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +56,15 @@ class ParentHomeActivity : AppCompatActivity(){
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.frame_blank, afterschool)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                R.id.menuitem_bottom_more -> {
+                    more = MyFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_blank, more)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
