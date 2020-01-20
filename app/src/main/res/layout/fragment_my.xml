@@ -55,14 +55,15 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|right"
                 android:paddingRight="30dp">
+
                 <TextView
                     android:id="@+id/bt_edit"
-                    android:gravity="center"
                     android:layout_width="61dp"
-                    android:layout_height="31dp"
-                    android:text="편집"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/white_radius_17_gray_d6d6d6_border"
-                    android:textSize="18sp"/>
+                    android:gravity="center"
+                    android:text="편집"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
