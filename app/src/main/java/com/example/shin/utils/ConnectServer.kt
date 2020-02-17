@@ -101,7 +101,8 @@ companion object {
 
         //작성한 Request Body와 데이터를 보낼 url을 Request에 붙임
         val request = Request.Builder()
-            .url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/auth")
+            .url("http://172.30.1.32:5000/auth") // localhost Api 요청, 내부ip로접속
+            //.url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/auth")
             .post(requestBody)
             .build()
 
@@ -175,9 +176,12 @@ companion object {
 
         val request = Request.Builder()
             .header("X-Http-Token", ContextUtils.getUserToken(context).toString())
-            .url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/" + "user_info")
+            .url("http://172.30.1.32:5000/user_info")   // url에 http:// 안쓰면 Error
+            //.url("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/" + "user_info")
             .put(requestBody)
             .build()
+
+        println("토큰 값: " + ContextUtils.getUserToken(context).toString())
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {

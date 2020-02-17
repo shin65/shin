@@ -42,7 +42,7 @@ class SecondActivity : AppCompatActivity() {
             else{
                 println("사진확인 : " + GlobalData.loginUser?.profile_image_url)
                 println("학부모홈으로")
-                myIntent = Intent(this, ParentHomeActivity::class.java)
+                myIntent = Intent(this, MainActivity::class.java) // ParentHomeActivity -> MainActivity (2/13)
                 myIntent.putExtra("type", "PARENTS") // 다음창으로 값 넘김.
                 startActivity(myIntent)
             }

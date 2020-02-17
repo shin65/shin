@@ -61,7 +61,7 @@ class ParentProfileActivity : AppCompatActivity() {     // 프로필 사진, 이
 
                     }
                 })
-            var intent = Intent(mContext, AddChildActivity::class.java)
+            var intent = Intent(mContext, ParentHomeActivity::class.java) // AddChildActivity -> ParentHomeActivity 임시 변경
             startActivity(intent)
         }
     }
