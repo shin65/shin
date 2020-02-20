@@ -340,7 +340,8 @@ companion object {
         }
         val client = OkHttpClient()
         val urlBuilder =
-            HttpUrl.parse("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/school_quarter_info")!!.newBuilder()
+            HttpUrl.parse("http://172.30.1.57:5000/school_quarter_info")!!.newBuilder()
+            //HttpUrl.parse("http://ec2-52-78-148-252.ap-northeast-2.compute.amazonaws.com/school_quarter_info")!!.newBuilder()
         val requestUrl = urlBuilder
             .build().toString()
         val request = Request.Builder()
