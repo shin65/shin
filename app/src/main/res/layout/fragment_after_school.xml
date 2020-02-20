@@ -124,6 +124,7 @@
          </LinearLayout>
 
          <TextView
+             android:id="@+id/txtvAfterSchoolApplyAvailable"
              android:layout_width="match_parent"
              android:layout_height="54dp"
              android:gravity="center"
@@ -132,7 +133,7 @@
              android:layout_marginLeft="12dp"
              android:layout_marginRight="12dp"
              android:textColor="@color/white"
-             android:text="지금은 수강신청 기간이 아닙니.(Text)"/>
+             />
 
 
       </LinearLayout>
